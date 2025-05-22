@@ -2,7 +2,7 @@
 
 There are two versions of this script: one with **hardcoded groups** (Create_User_GWS-Hardcoded.py) and this **dynamic version** (Create_User_GWS-Dynamic.py). 
 
-The script **Create_User_GWS-Hardcoded.py** was mentioned to show how the logic implementation would work. The same logic is applied in this dynamic version, but now the group data depends on the current, updated Google Workspace groups.
+The script **Create_User_GWS-Hardcoded.py** is implemented to show how the logic implementation would work. The same logic is applied in this dynamic version, but now the group data depends on the current, updated Google Workspace groups.
 
 This version of the script dynamically fetches the list of groups directly from Google Workspace using GAM, ensuring it always works with the most current group information. This dynamic approach is more convenient because it eliminates the need to manually update the script whenever groups change or new groups are added. In contrast, the earlier version used a hardcoded list of groups, which requires ongoing maintenance and risks becoming outdated. Dynamic fetching improves accuracy, reduces manual effort, and helps avoid errors caused by stale data.
 
