@@ -2,7 +2,7 @@
 
 ---
 
-# This repository provides instructions to set up your environment with Python and GAM for managing Google Workspace domains, including OAuth authorization setup.
+Instructions to set up your environment with Python and GAM including OAuth authorization to be able to run the GUI script.
 
 ---
 
