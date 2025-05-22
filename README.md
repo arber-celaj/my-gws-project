@@ -1,8 +1,8 @@
-Create User in Google Wokrspace GUI Script - Quick Start
+## Create User in Google Wokrspace GUI Script - Quick Start
 
 ---
 
-This repository provides instructions to set up your environment with Python and GAM for managing Google Workspace domains, including OAuth authorization setup.
+# This repository provides instructions to set up your environment with Python and GAM for managing Google Workspace domains, including OAuth authorization setup.
 
 ---
 
