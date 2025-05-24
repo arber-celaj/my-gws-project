@@ -1,6 +1,37 @@
 ## Create User in Google Wokrspace GUI Script - Quick Start
 
+# Create_User_GWS-Dynamic.py
+
+This version of the script dynamically fetches the list of groups directly from Google Workspace using GAM, ensuring it always works with the most current group information. This dynamic approach is more convenient because it eliminates the need to manually update the script whenever groups change or new groups are added. In contrast, the earlier version used a hardcoded list of groups, which requires ongoing maintenance and risks becoming outdated. Dynamic fetching improves accuracy, reduces manual effort, and helps avoid errors caused by stale data.
+
+The script **Create_User_GWS-Hardcoded.py** was mentioned to show how the logic implementation would work. The same logic is applied in this dynamic version, but now the group data depends on the current, updated Google Workspace groups.
+
+### Summary:
+- Groups are **not hardcoded anywhere** in the script.
+- Instead, the script calls GAM (`gam print groups email`) and parses the output to build a list of group emails.
+- This list (`self.all_groups`) is then used throughout the script to determine appropriate groups for the user.
+- If GAM or the network is unavailable, it will show error/warning dialogs, and the groups list will be empty.
+
+## Key Changes
+
+- **Removed Hardcoded Dictionaries:**  
+  The previous hardcoded group lists like `BASE_GROUPS`, `ROLE_GROUPS`, `BASE_LOCATION_GROUPS`, and `ROLE_LOCATION_GROUPS` are no longer used.
+
+- **Added `fetch_all_groups` Method:**  
+  This method runs the GAM command `gam print groups email` to retrieve all group emails from Google Workspace, handling errors gracefully.
+
+- **Modified `determine_groups_to_add`:**  
+  Now accepts an `all_groups` parameter and filters groups dynamically using string matching. The role keywords logic using regex remains unchanged.
+
+- **Updated `UserCreatorApp`:**  
+  - Fetches all groups once during initialization and stores them in `self.all_groups`.  
+  - Passes `self.all_groups` to `determine_groups_to_add` in both `preview_groups` and `create_user` methods.
+
 ---
+
+**Note:**  
+For this script to work correctly, GAM must be installed, configured, and accessible from your system's PATH. Network connectivity is required to fetch group data from Google Workspace. If GAM is not available or network issues occur, the script will display appropriate error or warning messages, and group-related functionality will be limited.
+
 
 Instructions to set up your environment with Python and GAM including OAuth authorization to be able to run the GUI script.
 
